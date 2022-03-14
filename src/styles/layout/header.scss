@@ -1,14 +1,15 @@
 .header {
 
     &__main {
-        position: fixed;
-        overflow: hidden;
+        position: absolute;
+        // overflow: hidden;
         left: 0;
         top: 0; 
         right: 0;
         display: flex; 
         height: 70px;
         background-color: black;
+        z-index: 999;
         
        
     }

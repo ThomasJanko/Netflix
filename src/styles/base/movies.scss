@@ -1,0 +1,16 @@
+.home_movie{
+    position: relative;
+    z-index: 1;
+    
+
+    img{
+        position: absolute;
+    
+        left: 0;
+        top: 0; 
+        right: 0;
+        width: 100%;
+        z-index: 0;
+    }
+    
+}
