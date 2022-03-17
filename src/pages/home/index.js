@@ -24,16 +24,33 @@ const Index = () => {
             <div className='home_movie'>
                 {homemovie ? 
                     <>
-                <h1>{homemovie.title}</h1> 
+                
                 <img src={`https://image.tmdb.org/t/p/original/${homemovie.backdrop_path}`} alt=""/>
+
+                <div className='home_text'>
+                <h1>{homemovie.title}</h1> 
+
+                    <p>{homemovie.overview} </p>
+                <div className='btn_home'>
+                <button className='btn_white'><ion-icon name="play-outline"></ion-icon> <span>Lecture</span>  </button>
+                <button className='btn_grey'><ion-icon name="information-circle-outline"></ion-icon><span>Plus d'infos</span>  </button>
+                </div>
+                </div>
                 </>
                   : <> </>}
 
                 
             </div>
-            {movies && movies.map((movie) => (
-            <Movies movie={movie} /> 
-        ))}
+            {/* {movies && movies.map((movie) => (
+                <> */}
+            <div className='movies__poster'>
+            <Movies movies={movies} title="Tendances Actuelles" /> 
+            <Movies movies={movies} title="Recommandation" />
+            </div>
+
+            {/* </> */}
+            
+        {/* ))} */}
         </div>
     );
 }

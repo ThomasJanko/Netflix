@@ -1,16 +1,139 @@
 .home_movie{
-    position: relative;
-    z-index: 1;
-    
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
 
     img{
-        position: absolute;
-    
-        left: 0;
+        position: relative;
+        left: 0px;
         top: 0; 
         right: 0;
         width: 100%;
-        z-index: 0;
+        
+    }
+
+    .home_text{
+        position: absolute;
+        left: 6%;
+        top: 400px;
+        color: white;
+        
+    }
+
+    h1{
+        color: white;
+        font-size: 50px;
+    }
+
+    p{
+        width: 30%; 
+        color: white;
+        font-size: 30px;
+    } 
+
+    }
+
+    .btn_home{
+
+        
+        button{
+            border-radius:7px;
+            
+            font-size: 28px;
+            font-weight: 600;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: inline-flex;
+            height: 65px;
+            
+            
+
+
+            ion-icon{
+                font-size: 48px;
+                margin-left: -15px;
+                padding-right: 8px;
+
+            }
+        }
+
+        .btn_white{
+            background-color: white;
+            width: 10%;
+            
+            
+            
+        }
+        .btn_grey{
+            background-color: grey;
+            margin-left: 20px;
+            width: 12%;
+            
+            color: white;
+        }
+        
+    }
+
+    .movieRow {
+        margin-bottom: 30px;
+        position: relative;
+        padding-top: 1200px;
+        // top: 500px;
     }
     
-}
+    .movieRow--listarea {
+        overflow-x: hidden;
+        padding-left: 30px;
+    }
+    .movieRow--list {
+        width: 99999999px;
+        transition: all ease 0.5s;
+    }
+    .movieRow--item {
+        display: inline-block;
+        width: 150px;
+        cursor: pointer;
+    }
+    .movieRow--item img {
+        width: 100%;
+        transform: scale(0.9);
+        transition: all ease 0.2s;
+    }
+    .movieRow--item img:hover {
+        transform: scale(1);
+    }
+    .movieRow--left,
+    .movieRow--right {
+        position: absolute;
+        width: 40px;
+        height: 225px;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 99;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        cursor: pointer;
+        opacity: 0;
+        transition: all ease 0.5s;
+    }
+    .movieRow--left {
+        left: 0;
+    }
+    .movieRow--right {
+        right: 0;
+    }
+    .movieRow:hover .movieRow--left, 
+    .movieRow:hover .movieRow--right{
+        opacity: 1;
+    }
+    
+    @media (max-width: 760px) {
+        .movieRow--left,
+        .movieRow--right {
+            opacity: 1;
+        }
+    }

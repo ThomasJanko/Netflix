@@ -12,7 +12,8 @@ const Header = () => {
       </Link>
       </div>
       <nav className="header__nav">
-        <ul className="nav__list">
+
+        <ul className="nav__list left">
           <li className="nav__item">
             <Link href="/">
               <a className="nav__link">Accueil</a>
@@ -35,9 +36,9 @@ const Header = () => {
           </li>
 
            
-
-       
-          <li className="nav__item nav__right">
+          </ul>
+       <div className="navigation_right">
+          <li className="nav__item search_icon">
             {/* <Link href="/about"> */}
               <a className="nav__link nav__icon"><ion-icon name="search-outline"></ion-icon> </a>
             {/* </Link> */}
@@ -63,8 +64,8 @@ const Header = () => {
               <a className="nav__link nav__icon"><ion-icon name="person-outline"></ion-icon></a>
             </Link>
           </li>
-          
-        </ul>
+        
+        </div>
       </nav>
       
     </div>
