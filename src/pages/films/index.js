@@ -43,7 +43,7 @@ const Index = () => {
             </div>
             {/* {movies && movies.map((movie) => (
                 <> */}
-            <div className='movies__poster'>
+            <div className='movieRow'>
             <Movies movies={movies} title="Tendances Actuelles" /> 
             <Movies movies={movies} title="Recommandation" />
             </div>
