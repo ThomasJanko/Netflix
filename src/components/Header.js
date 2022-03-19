@@ -1,11 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import NetflixLogo from "../public/netflix-logo.png";
 
 const Header = () => {
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  if (typeof window !== "undefined") {
+   window.onscroll = () => {
+    setIsScrolled(window.pageYOffset === 0? false : true);
+    return () => (window.onscroll = null);
+  }
+  }
+  
+
   return (
-    <div className="header__main">
+    <div className={isScrolled ? "header__main__scroll" : "header__main" } >
       <div className="header__logo">
       <Link href="/">
         <img src={NetflixLogo.src} alt="Netflix" />
@@ -60,7 +70,7 @@ const Header = () => {
             </Link>
           </li>
           <li className="nav__item">
-            <Link href="/profil">
+            <Link href="/login">
               <a className="nav__link nav__icon"><ion-icon name="person-outline"></ion-icon></a>
             </Link>
           </li>

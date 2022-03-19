@@ -1,0 +1,78 @@
+.bg_img_login{
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://www.generationcable.net/wp-content/uploads/2017/03/Netflix-Background.jpg');  
+}
+
+.card{
+
+        &__login{
+            position: absolute;
+            top: 50%; right: 50%;
+            width: 30%;
+            height: 80%;
+            transform: translate(50%,-50%);
+            background: rgba(0, 0, 0, 0.8);
+           
+            
+
+            .auth_textfield{
+                display: flex;
+                 flex-direction: column;             
+                justify-content: center;
+                align-items: center;
+
+                .textfield{
+                    position: relative;
+                    height: 50px;
+                    width: 72%;
+                    margin-top: 20px;
+                    border-radius: 5px;
+                    border: none;
+                    background-color: #3E4347;
+                    font-size: large;
+                    color: white;
+                    padding-left: 40px;
+
+                    &::placeholder{
+                        font-size: large;
+                        
+                        margin-top: 40px;
+                        color: rgba(255, 255, 255, 0.5);;
+                    }
+                }
+            }
+        }
+        &__title{
+            color: white;
+            margin-left: 60px;
+            margin-top: 40px;
+        }
+}
+
+.login__btn{
+            
+            position: relative;
+            background-color: red;
+            width: 80%;
+            height: 50px;
+            border-radius: 5px;
+            border: none;
+            margin-top: 50px;
+            font-size: large;
+            color: white;  
+            font-weight: bold;       
+}
+
+.login_signup{
+    position: relative;
+    margin-left: 60px;
+    top: 10px;
+    color: white;
+    
+}
+
+
