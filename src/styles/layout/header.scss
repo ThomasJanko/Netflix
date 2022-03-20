@@ -57,6 +57,10 @@
             .search_icon{
                 padding-top: 4px;
             }
+
+            
+
+           
         }
         
         
@@ -105,10 +109,59 @@
     }
 }
 
+.header_films{
+    position: fixed;
+    background: linear-gradient( transparent 0%, rgba(0,0,0,0.0) 100%);
+    z-index: 999;
+    height: 70px;
+    top: 8%;
+    left: 0;
+    right: 0;
+
+    &__scroll{
+    position: fixed;
+    background-color: black;
+    left: 0;
+    top: 0; 
+    right: 0;
+    display: flex; 
+    height: 70px;
+    // background-color: black;
+    z-index: 999;
+    transition: 0.5s;
+    }
+
+    &__ul{
+        display: flex;
+        list-style: none;
+        margin-left: 0px;
+    }
+
+    &__title{
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    &__genres{
+        margin-top: 10px;
+        margin-left: 30px;
+        width: 120px;
+        height: 24px;
+        background-color: black;
+        border:solid 1px;
+        border-color: white;
+        font-size: medium;
+        color: white;
+
+        &::placeholder{
+            color: white;
+            font-weight: bold;
+            padding-left: 10px;
+        }
 
 
-
-
-///
+    }
+}
 
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Headerfilms from '../../components/HeaderFilms';
 import Movies from '../../components/Movies';
 import movieService from '../../service/movie.service';
 
@@ -20,6 +21,7 @@ const Index = () => {
     }, []);
     return (
         <div>
+            <Headerfilms/>
 
             <div className='home_movie'>
                 {homemovie ? 
