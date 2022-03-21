@@ -25,7 +25,8 @@ const Headerfilms = () => {
             
           </li>
           <li className="nav__item">
-            <input className='header_films__genres' type="" name="" value="" placeholder='Genres'/>
+            <input className='header_films__genres'  placeholder='Genres'/>
+            {/* type="" name="" value="" */}
           </li>
          
            

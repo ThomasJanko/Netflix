@@ -4,29 +4,80 @@ import movieService from '../service/movie.service';
 
 const Index = () => {
 
+    const [mount, setMount] = useState(true)
+    //Type de films
     const [movies, setMovies] = useState()
+    const [rated, setRated] = useState()
+    const [upcoming, setUpcoming] = useState()
+
+    //Premier film de la list (pour Affiche)
     const [homemovie, setHomemovie] = useState()
-    useEffect(() => {
+    const [homeVideo, setHomeVideo] = useState()
+    
+
+
+    useEffect( () => {
+    
+          getMovies();
+
         
-    movieService.getMovies()
-        .then((res) => {
-             setMovies(res.data.results)
-            setHomemovie(res.data.results[0])
-            console.log(res.data.results[0])
+
+
+        //get Popular movies
+        movieService.getRatedMovies()
+        .then((res) =>{
+            setRated(res.data.results)
         })
 
+        //get Latest Movies
+        movieService.getUpcomingMovies()
+        .then((res) =>{
+            setUpcoming(res.data.results)
+        })
+
+       
     
-        
+
+ 
     }, []);
+
+    const getMovies = () => {
+        //getAll movies (discover)
+        movieService.getMovies()
+    .then(res => {
+        setMovies(res.data.results)
+        setHomemovie(res.data.results[0])
+        getMovie()
+        })
+    }
+
+    const getMovie = () => {
+         //get du premier film de la liste pour avoir la vidéo
+         if(homemovie){
+            movieService.getMovie(homemovie.id)
+            .then((res) => {
+                setHomeVideo(res.data.results[5])
+                
+                // console.log(res.data.results[5])
+            })
+         }
+       
+    }
     return (
         <div>
 
             <div className='home_movie'>
-                {homemovie ? 
+                {homemovie && 
                     <>
-                
-                <img src={`https://image.tmdb.org/t/p/original/${homemovie.backdrop_path}`} alt=""/>
 
+                 {homeVideo ?
+                    <iframe src={`https://www.youtube.com/embed/${homeVideo.key}?autoplay=1&mute=1&showinfo=0&controls=0&autohide=1&showsearch=0&rel=0&iv_load_policy=3&cc_load_policy=1&fs=0&loop=1`}>
+                    
+                    </iframe> 
+                
+                 :  <img src={`https://image.tmdb.org/t/p/original/${homemovie.backdrop_path}`} alt=""/> 
+
+                 }
                 <div className='home_text'>
                 <h1>{homemovie.title}</h1> 
 
@@ -37,15 +88,27 @@ const Index = () => {
                 </div>
                 </div>
                 </>
-                  : <> </>}
+                }
+                  
 
                 
             </div>
-            {/* {movies && movies.map((movie) => (
-                <> */}
+           
             <div className='movieRow'>
-            <Movies movies={movies} title="Tendances Actuelles" /> 
-            <Movies movies={movies} title="Recommandation" />
+            {upcoming &&  <Movies movies={upcoming} title="Nouveautés" /> }
+            {movies &&  <Movies movies={movies} title="Tendances Actuelles" /> }
+            {rated &&  <Movies movies={rated} title="Films Populaire" /> }
+
+
+            
+
+            {/* {rated &&  <Movies movies={rated} title="Films Populaire" />}
+
+            {rated &&  <Movies movies={rated} title="Films Populaire" />}
+
+            {rated &&  <Movies movies={rated} title="Films Populaire" />} */}
+
+           
             </div>
 
             {/* </> */}
