@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const URL = "https://api.themoviedb.org/3";
 const API_KEY = '?api_key=b68b1913935ab2f86c26f56fae79a784';
-const page = 1 + (Math.random() * (40-1))
+const page = 1 + (Math.random() * (20-1))
 
 
 

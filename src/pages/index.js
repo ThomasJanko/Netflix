@@ -41,9 +41,9 @@ const Index = () => {
  
     }, []);
 
-    const getMovies = () => {
+    const getMovies = async () => {
         //getAll movies (discover)
-        movieService.getMovies()
+        await movieService.getMovies()
     .then(res => {
         setMovies(res.data.results)
         setHomemovie(res.data.results[0])
@@ -51,10 +51,10 @@ const Index = () => {
         })
     }
 
-    const getMovie = () => {
+    const getMovie = async () => {
          //get du premier film de la liste pour avoir la vidéo
          if(homemovie){
-            movieService.getMovie(homemovie.id)
+            await movieService.getMovie(homemovie.id)
             .then((res) => {
                 setHomeVideo(res.data.results[5])
                 
@@ -81,7 +81,7 @@ const Index = () => {
                 <div className='home_text'>
                 <h1>{homemovie.title}</h1> 
 
-                    <p>{homemovie.overview} </p>
+                <p>{homemovie.overview} </p>
                 <div className='btn_home'>
                 <button className='btn_white'><ion-icon name="play-outline"></ion-icon> <span>Lecture</span>  </button>
                 <button className='btn_grey'><ion-icon name="information-circle-outline"></ion-icon><span>Plus d'infos</span>  </button>
@@ -95,9 +95,9 @@ const Index = () => {
             </div>
            
             <div className='movieRow'>
-            {upcoming &&  <Movies movies={upcoming} title="Nouveautés" /> }
-            {movies &&  <Movies movies={movies} title="Tendances Actuelles" /> }
-            {rated &&  <Movies movies={rated} title="Films Populaire" /> }
+            {upcoming ?  <Movies movies={upcoming} title="Nouveautés" /> :<></> }
+            {movies ?  <Movies movies={movies} title="Tendances Actuelles" /> : <></> }
+            {rated ?  <Movies movies={rated} title="Films Populaire" /> : <></> }
 
 
             
