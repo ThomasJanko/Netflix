@@ -6,7 +6,7 @@ const MainLayout = ({children}) => {
         <>
         {/* v-if page sign in */}
             <Header/>
-            <main>
+            <main className="app">
                 {children}
             </main>
             <footer>

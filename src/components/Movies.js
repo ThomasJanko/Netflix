@@ -7,22 +7,22 @@ const Movies = (props) => {
     const [scrollX, setScrollX] = useState(0);
 
 
-    // const handleLeftArrow = () => {
-    //     let x = scrollX + Math.round(window.innerWidth / 2);
-    //     if(x > 0) {
-    //         x = 0;
-    //     }
-    //     setScrollX(x);
-    // }
+    const handleLeftArrow = () => {
+        let x = scrollX + Math.round(window.innerWidth / 2);
+        if(x > 0) {
+            x = 0;
+        }
+        setScrollX(x);
+    }
 
-    // const handleRightArrow = () => {
-    //     let x = scrollX - Math.round(window.innerWidth / 2);
-    //     let listW = props.movies.results.length * 150;
-    //     if ((window.innerWidth - listW) > x) {
-    //         x = (window.innerWidth - listW) - 60;
-    //     }
-    //     setScrollX(x);
-    // }
+    const handleRightArrow = () => {
+        let x = scrollX - Math.round(window.innerWidth / 2);
+        let listW = props.movies.length * 150;
+        if ((window.innerWidth - listW) > x) {
+            x = (window.innerWidth - listW) - 60;
+        }
+        setScrollX(x);
+    }
     return (
         <>
         
@@ -30,15 +30,15 @@ const Movies = (props) => {
             <h1 className='poster__title'>{props.title} </h1>
 
             <div className="movieRow--left" >
-            <FaAngleLeft style={{fontSize: 50}} />
+            <FaAngleLeft style={{fontSize: 50}} onClick={()=>handleLeftArrow()} />
             </div>
             <div className="movieRow--right">
-            <FaAngleRight style={{fontSize: 50}} />
+            <FaAngleRight style={{fontSize: 50}} onClick={()=>handleRightArrow()} />
             </div>
             <div className="movieRow--listarea">
                 <div className="movieRow--list" style={{
                     marginLeft: scrollX,
-                    // width: props.movies.results.length * 150
+                    // width: props.movies.length * 150
                     }}>
                       {props.movies && props.movies.map((movie) => (
                        <div className="movieRow--item">

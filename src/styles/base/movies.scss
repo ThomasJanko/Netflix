@@ -16,14 +16,16 @@
         
     }
 
+
     .home_text{
         position: absolute;
         left: 6%;
         top: 300px;
         color: white;
-        
+         
     }
 
+    
     h1{
         color: white;
         font-size: 50px;
@@ -139,4 +141,9 @@
         .movieRow--right {
             opacity: 1;
         }
+    }
+
+    .poster__title{
+        color: white;
+        margin-left: 46px;
     }

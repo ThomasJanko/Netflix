@@ -1,8 +1,10 @@
 $primaryColor: red;
 $secondaryColor: white;
+$appColor: #1C1E1F;
 
 html, body {
     // max-width: 100%;
     overflow-x: hidden;
+    background-color: $appColor;
 }
 
