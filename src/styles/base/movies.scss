@@ -96,6 +96,7 @@
     .movieRow--listarea {
         overflow: hidden;
         padding-left: 30px;
+        
     }
     .movieRow--list {
         width: 99999999px;
@@ -105,21 +106,23 @@
         position: relative;
         display: inline-block;
         width: 320px;
-        height: 260px;
+        height: 100px;
 
         cursor: pointer;
     }
     .movieRow--item img {
-        width: 100%;
-
+        width: 110%;
+        height: 200px;
         border-radius: 6px;
         transform: scale(0.9);
         transition: all ease 0.5s;
         
     }
+    .movieRow--item img:focus,
     .movieRow--item img:hover {
         transform: scale(1.2);
         
+        height: 240px;
         position: relative;
         transition-delay: 200ms;
         
