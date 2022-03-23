@@ -6,13 +6,13 @@ const Index = () => {
 
     const [mount, setMount] = useState(true)
     //Type de films
-    const [movies, setMovies] = useState()
-    const [rated, setRated] = useState()
-    const [upcoming, setUpcoming] = useState()
+    const [movies, setMovies] = useState([])
+    const [rated, setRated] = useState([])
+    const [upcoming, setUpcoming] = useState([])
 
     //Premier film de la list (pour Affiche)
-    const [homemovie, setHomemovie] = useState()
-    const [homeVideo, setHomeVideo] = useState()
+    const [homemovie, setHomemovie] = useState({})
+    const [homeVideo, setHomeVideo] = useState({})
     
 
 
@@ -21,8 +21,6 @@ const Index = () => {
           getMovies();
 
         
-
-
         //get Popular movies
         movieService.getRatedMovies()
         .then((res) =>{
@@ -47,16 +45,20 @@ const Index = () => {
     .then(res => {
         setMovies(res.data.results)
         setHomemovie(res.data.results[0])
+        
         getMovie()
+        
+        
         })
     }
 
     const getMovie = async () => {
          //get du premier film de la liste pour avoir la vidéo
-         if(homemovie){
+         if(homemovie.id){
             await movieService.getMovie(homemovie.id)
             .then((res) => {
                 setHomeVideo(res.data.results[5])
+                console.log(homemovie.id)
                 
                 // console.log(res.data.results[5])
             })
@@ -70,12 +72,13 @@ const Index = () => {
                 {homemovie && 
                     <>
 
-                 {homeVideo ?
+                 {homeVideo.key?
                     <iframe src={`https://www.youtube.com/embed/${homeVideo.key}?autoplay=1&mute=1&showinfo=0&controls=0&autohide=1&showsearch=0&rel=0&iv_load_policy=3&cc_load_policy=1&fs=0&loop=1`}>
                     
                     </iframe> 
                 
-                 :  <img src={`https://image.tmdb.org/t/p/original/${homemovie.backdrop_path}`} alt=""/> 
+                 : 
+                   <img src={`https://image.tmdb.org/t/p/original/${homemovie.backdrop_path}`} alt=""/> 
 
                  }
                 <div className='home_text'>

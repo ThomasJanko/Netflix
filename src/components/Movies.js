@@ -45,7 +45,7 @@ const Movies = (props) => {
                       {props.movies && props.movies.map((movie) => (
                        <div className="movieRow--item" key={movie.id}>
                            {movie.backdrop_path ? 
-                        <img src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`} alt={movie.original_title} />
+                        <img src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`} alt={movie.original_title} width="100%" height="100%" />
                         : 
                         
                         <img src="data:image/png;base64,
@@ -59,6 +59,10 @@ const Movies = (props) => {
                         alt={movie.original_title}
                         width="320" height="180px" />
                            }
+
+                           {/* <div className='under_square'>
+                               <h1>blabala</h1>
+                           </div> */}
                     </div>
                     ))}
                 </div>
