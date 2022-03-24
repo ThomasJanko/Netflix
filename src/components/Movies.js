@@ -44,7 +44,9 @@ const Movies = (props) => {
                     }}>
                       {props.movies && props.movies.map((movie) => (
                        <div className="movieRow--item" key={movie.id}>
+
                            {movie.backdrop_path ? 
+            
                         <img src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`} alt={movie.original_title} width="100%" height="100%" />
                         : 
                         
@@ -57,12 +59,36 @@ const Movies = (props) => {
                         diO4T7hdRE4JD3slqPo2MTfkI86LQ761/oDs3lYP5CPc2NYQj8JMZeqPtqhEJCI1NM0OIHmYstU0zSsK8JfyLbCq1TdkIW5vm7fkRtIMRGpvSEcYdIdotfZxP9bwgJnxHNq1KedGIBITGpun+lBPOwZfzgoIw7ghxDp5eNCIL4fjwUxgDcrA4a0QGQm3TIyHOwRfzgoMwHscHQpiDmwub0hHCHJyVkchTMkKF2BGCd09UDjbzgpjwE+ZgWal5QUcYzI+fRDk4LaPTRuQgDE4JwSHvZNWczQtCwjd052byBTMhzMFBqecFGWFwSohOzy4bNS+OjchCGN53H/0Nc/BpIzISwhy8KKuCmxDm4CbqGpGSEOdg2TUiJSHOwSc25STcwIAR1dyEMAfX2qbUhOi3CJ5KkXETruELp8dGJCUcgT6c5LLOuQnBj50lq1KQE6IcPCmrfSOyEsIcPJZFyk0IXm5PlqVoLzW0hDAHyyrnJoQ5OJTFmJsQ5uCyTrkJf8CAIXJuwhE6KrSQWcxNiI4lPpaFIXTlP49/nXCEbFqLlHsNYQ5+inJyQpiDZ7oRmQlhDs4EOyHKwc9RSk6IzmAkMue+lsIcnKQF+RqOwCHvZFXF5ISvyKZVSu5SmIODjJ0Q/VehpWAn/Anv3GJyQpiDFzk7IfoVqceCnRDmYPo1hDn4KWYnbJBNc3ZClIOTwN17mvCgxWIR3iZcJMnkQWmilShdEK4cIzwwhXFeR7P5dvf58fbrD6z+8/fjZTufijx8Xj5OWtwDq/yGbz9E1UKDxVlVbnevf99xgUXvb7t5lC9Wjxr1If9H3
                         /D/arvZffz+53/198tGTPHHvLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy8vLy+Tf8BzWq+kZygb/cAAAAASUVORK5CYII=" 
                         alt={movie.original_title}
-                        width="320" height="180px" />
+                        width="320" height="180px"
+                        
+                        
+                        />
+                        
                            }
+                            
+                           <div className='itemInfo'>
+                               <div className='icons'>
+                                <ion-icon name="play-circle-outline"></ion-icon>
+                                <ion-icon name="add-circle-outline"></ion-icon>
+                                <ion-icon name="thumbs-up-outline"></ion-icon>
+                                <ion-icon name="add-circle-outline"></ion-icon>
+                            </div>
+                            <div className='itemInfoTop'>
+                                <span>1 hours 37min</span>
+                                <span className='limit'>+16</span>
+                                <span>1999</span>   
+                            </div>
+                            <div className='desc'>
+                                reprehenderit sint eiusmod magna ad proident minim dolore. Reprehenderit quis voluptate ea magna proident Lorem ut irure eiusmod officia.
+                                
+                            </div>
+                            <div className='genre'>
+                                Action
+                            </div>
 
-                           {/* <div className='under_square'>
-                               <h1>blabala</h1>
-                           </div> */}
+
+                               
+                           </div>
                     </div>
                     ))}
                 </div>

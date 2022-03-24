@@ -101,32 +101,60 @@
         width: 99999999px;
         transition: all ease 0.5s;
     }
+
+    
     .movieRow--item {
         position: relative;
         display: inline-block;
         width: 320px;
         height: 200px;
-
+        margin-bottom: 80px;
         cursor: pointer;
+        overflow: hidden;
+        transition: 1s;
+
+        &:hover{
+            height: 360px;
+            // margin-top: 100px;
+            // padding-bottom: 100px;
+        }
+
+
         
     }
     .movieRow--item img {
-        width: 110%;
+        width: 340px;
         height: 200px;
         border-radius: 6px;
         transform: scale(0.9);
         transition: all ease 0.5s;
+        object-fit: cover;
+
        
         
     }
     .movieRow--item img:focus,
     .movieRow--item img:hover {
-        transform: translate3d(0px, -40px, 0);
-        height: 240px;
-        position: relative;
+        // transform: translate3d(0px, -34px, 0);
+        // height: 400px;
+        // margin-bottom: -40px;
+        height: 260px;
+        // width: 400px;
+        // position: relative;
         transition-delay: 200ms;
-        z-index: 99999;
+        // z-index: 99999;
+        // height: 260px;
+        // width: 110%;
        
+
+        img{
+            width: 325px;
+            height: 300px;
+        }
+            
+
+        // border-bottom: solid 140px grey;
+           
         
     }
 
@@ -168,13 +196,4 @@
     .poster__title{
         color: white;
         margin-left: 46px;
-    }
-
-    .under_square{
-        background-color: grey;
-        position: relative;
-        width: 320px;
-        height: 400px;
-        z-index: 400;
-        
     }
