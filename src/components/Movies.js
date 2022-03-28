@@ -1,10 +1,14 @@
 
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 
 const Movies = (props) => {
 
     const [scrollX, setScrollX] = useState(0);
+    const [isHovered, setisHovered] = useState(false);
+    
+    const trailer = "https://www.youtube.com/watch?v=uDEy060DZXg"
 
 
     const handleLeftArrow = () => {
@@ -26,10 +30,10 @@ const Movies = (props) => {
     return (
         <>
             
-            {props.movies &&
+            {props.movies && (
             <>
             
-        
+                
             <h1 className='poster__title'>{props.title} </h1>
 
             <div className="movieRow--left" >
@@ -43,9 +47,13 @@ const Movies = (props) => {
                     marginLeft: scrollX,
                     }}>
                       {props.movies && props.movies.map((movie) => (
-                       <div className="movieRow--item" key={movie.id}>
+                       <div className="movieRow--item" key={movie.id} 
+                       onMouseEnter ={()=> setisHovered(true)} onMouseLeave={()=>setisHovered(false)}
+                    //    style={{left: isHovered && props.index * 225 -50}}
+                       >
 
                            {movie.backdrop_path ? 
+                           
             
                         <img src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`} alt={movie.original_title} width="100%" height="100%" />
                         : 
@@ -64,31 +72,43 @@ const Movies = (props) => {
                         
                         />
                         
+                        
+                        
                            }
-                            
-                           <div className='itemInfo'>
-                               <div className='icons'>
-                                <ion-icon name="play-circle-outline"></ion-icon>
-                                <ion-icon name="add-circle-outline"></ion-icon>
-                                <ion-icon name="thumbs-up-outline"></ion-icon>
-                                <ion-icon name="add-circle-outline"></ion-icon>
-                            </div>
-                            <div className='itemInfoTop'>
-                                <span>1 hours 37min</span>
-                                <span className='limit'>+16</span>
-                                <span>1999</span>   
-                            </div>
-                            <div className='desc'>
+                           
+                           {isHovered && (
+                               <>
+                               <video src={trailer} autoPlay={true} loop />
+                               <div className='itemInfo'>
+                                    <div className='icons'>
+                                        <Link href={`/films/${movie.id}`}>
+                                            <ion-icon name="play-circle-outline"></ion-icon>
+                                        </Link> 
+                                        <ion-icon name="add-circle-outline"></ion-icon>
+                                        <ion-icon name="thumbs-up-outline"></ion-icon>
+                                        <ion-icon name="add-circle-outline"></ion-icon>
+                                    </div>
+                                    <div className='itemInfoTop'>
+                                        <span>1 hours 37min</span>
+                                        <span className='limit'>+16</span>
+                                        {/* <span>1999</span>    */}
+                                    </div>
+                            {/* <div className='desc'>
                                 reprehenderit sint eiusmod magna ad proident minim dolore. Reprehenderit quis voluptate ea magna proident Lorem ut irure eiusmod officia.
                                 
-                            </div>
-                            <div className='genre'>
-                                Action
+                            </div> */}
+                                    <div className='genre'>
+                                        Action
+                                    </div>
                             </div>
 
+                               </>
+                           )}
+                            
+                           
 
                                
-                           </div>
+                          
                     </div>
                     ))}
                 </div>
@@ -101,8 +121,11 @@ const Movies = (props) => {
 
             
         </div>
+        
             </>
+            )
             }
+            
             
             
         

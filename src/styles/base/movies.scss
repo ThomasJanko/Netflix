@@ -12,9 +12,10 @@
         left: 0px;
         top: 0; 
         right: 0;
+        width: 100%;
         height: 1080px;
         transition: opacity .4s cubic-bezier(.665,.235,.265,.8) 0s;
-        
+      
     }
 
 
@@ -83,12 +84,14 @@
     }
 
     .movieRow {
+        
         margin-bottom: 30px;
         position: relative;
         margin-top: 1100px;
         overflow-y: auto;
         overflow: hidden;
-        
+        color: white;
+       
         // top: 500px;
     }
     
@@ -96,65 +99,135 @@
         overflow: hidden;
         padding-left: 30px;
         
+        
+        
+        
     }
     .movieRow--list {
         width: 99999999px;
         transition: all ease 0.5s;
+        
+        
+        
     }
 
     
     .movieRow--item {
+        
         position: relative;
         display: inline-block;
+        vertical-align: top;
+        white-space: normal;
+        
+        // padding: 0 0.2vw;
         width: 320px;
         height: 200px;
         margin-bottom: 80px;
+        
         cursor: pointer;
         overflow: hidden;
         transition: 1s;
 
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;   
+        }
+
+        video{
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        
+
         &:hover{
-            height: 360px;
-            // margin-top: 100px;
-            // padding-bottom: 100px;
+            // position: absolute;
+            //left: 10px;
+            
+            
+            // top: -150px;
+            height: 300px;
+            width: 340px;
+            -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, inset 0px 0px 16px 4px rgba(28,30,31,0.13); 
+            box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, inset 0px 0px 16px 4px rgba(28,30,31,0.13);
+            border-radius: 10px;
+            padding-bottom: 40px;
+            object-fit: cover;
+            
+            img{
+                
+                    // position: absolute;
+                    // top: 0;
+                    // bottom: 0;
+                    // left: 0;
+                    // right: 0;
+                    // width: 100%;
+                
+                    transform: translate3d(0px, -34px, 0);
+                    padding-top: 30px;
+
+       
+                // width: 400px;
+                // position: relative;
+                transition-delay: 200ms;
+            }
+
+            .icons{
+                font-size: 46px;
+                display: flex;
+                margin-top: -30px;
+                
+                ion-icon{
+                    padding: 5px;
+               
+                }
+            }
         }
 
 
         
     }
     .movieRow--item img {
+        
         width: 340px;
         height: 200px;
         border-radius: 6px;
         transform: scale(0.9);
         transition: all ease 0.5s;
         object-fit: cover;
+         
 
        
         
     }
-    .movieRow--item img:focus,
-    .movieRow--item img:hover {
-        // transform: translate3d(0px, -34px, 0);
-        // height: 400px;
-        // margin-bottom: -40px;
-        height: 260px;
-        // width: 400px;
-        // position: relative;
-        transition-delay: 200ms;
-        // z-index: 99999;
-        // height: 260px;
-        // width: 110%;
-       
+   
+    .genre{
+        font-size: 20px;
+        color: lightgray;
+        
+    }
+    .itemInfoTop{
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-size: 18px;
+        font-weight: 600;
+        color: gray;
+        
 
-        img{
-            width: 325px;
-            height: 300px;
-        }
+        .limit{
+            border: solid 1px gray;
+            padding: 1px 3px;
+            margin: 0 10px;
             
+        }
 
-        // border-bottom: solid 140px grey;
-           
         
     }
 
@@ -196,4 +269,32 @@
     .poster__title{
         color: white;
         margin-left: 46px;
+    }
+
+
+    .watch{
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+
+        .back{
+            display: flex;
+            align-items: center;
+            position: absolute;
+            top: 100px;
+            font-size: 20px;
+            font-weight: 600;
+            left: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+
+        video, iframe{
+           position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
