@@ -30,13 +30,13 @@
     
     h1{
         color: white;
-        font-size: 50px;
+        font-size: 40px;
     }
 
     p{
         width: 30%; 
         color: white;
-        font-size: 30px;
+        font-size: 20px;
     } 
 
     }
@@ -110,6 +110,7 @@
         
         
     }
+    
 
     
     .movieRow--item {
@@ -178,15 +179,34 @@
             }
 
             .icons{
-                font-size: 46px;
+                font-size: 42px;
                 display: flex;
                 margin-top: -30px;
+            
+                
+
+                .ion_infos{
+                    position: absolute;
+                    right: 10px;
+                }
+                
                 
                 ion-icon{
                     padding: 5px;
-               
+                    color: white;
+                    &:hover, &:focus{
+                        filter: brightness(50%);
+                        
+                    }
+
+                    
+
                 }
+
+                
+                
             }
+            
         }
 
 

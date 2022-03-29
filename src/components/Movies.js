@@ -27,6 +27,13 @@ const Movies = (props) => {
         }
         setScrollX(x);
     }
+
+    const showInfos = () => {
+        
+    }
+
+
+
     return (
         <>
             
@@ -69,11 +76,7 @@ const Movies = (props) => {
                         alt={movie.original_title}
                         width="320" height="180px"
                         
-                        
                         />
-                        
-                        
-                        
                            }
                            
                            {isHovered && (
@@ -86,7 +89,10 @@ const Movies = (props) => {
                                         </Link> 
                                         <ion-icon name="add-circle-outline"></ion-icon>
                                         <ion-icon name="thumbs-up-outline"></ion-icon>
-                                        <ion-icon name="add-circle-outline"></ion-icon>
+
+                                       <div className="ion_infos">
+                                           <ion-icon  name="chevron-down-circle-outline" onClick={()=> showInfos()}></ion-icon>
+                                       </div> 
                                     </div>
                                     <div className='itemInfoTop'>
                                         <span>1 hours 37min</span>
