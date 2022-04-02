@@ -1,18 +1,38 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 
 
 const Index = () => {
 
     const [isHovered, setisHovered] = useState(false)
+    const [movies, setMovies] = useState()
+
+    useEffect(() => {
+        setMovies(JSON.parse(localStorage.getItem('Mylist')))
+    }, []);
+
+
+    const RemovetoMyList = (element) =>{
+        let items = movies
+        console.log(element)
+        let index = items.findIndex(el => el.id === element.id )
+        items = items.splice(index, 1)
+
+        // localStorage.setItem('Mylist', JSON.stringify(items))
+        // setMovies(localStorage.getItem('Mylist'))
+        
+
+        
+    }
 
     return (
         <div className='mylist'>
             <h1>Ma Liste </h1>
 
             {/* localStorage get Movie From MyList */}
-            {localStorage.getItem('Mylist') && JSON.parse(localStorage.getItem('Mylist')).map((movie)=> (
+            {movies? 
+             movies.map((movie)=> (
                 <>
                 <div className="movieRow--item" key={movie.id} 
                        onMouseEnter ={()=> setisHovered(true)} onMouseLeave={()=>setisHovered(false)}
@@ -32,7 +52,7 @@ const Index = () => {
                                         <Link href={`/films/${movie.id}`}>
                                             <ion-icon name="play-circle-outline"></ion-icon>
                                         </Link> 
-                                        <ion-icon name="add-circle-outline" onClick={()=>addMyList(movie)} ></ion-icon>
+                                        <ion-icon name="remove-circle-outline" onClick= {()=>RemovetoMyList(movie)}></ion-icon>
                                         <ion-icon name="thumbs-up-outline"></ion-icon>
 
                                        <div className="ion_infos">
@@ -60,7 +80,9 @@ const Index = () => {
                             
                         </div>
                 </>
-            )) }
+            )) :
+            <h1> Aucun Film dans votre Liste </h1>
+            }
 
 
            
