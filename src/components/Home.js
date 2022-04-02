@@ -123,13 +123,14 @@ const Home = () => {
             </div>
            
             <div className='movieRow'>
-            {upcoming ?  <Movies movies={upcoming} title="Nouveautés"  /> : <></> }
+            
             {movies ?  <Movies movies={movies} title="Tendances Actuelles"  /> : <></> }
             {rated ?  <Movies movies={rated} title="Films Populaire"  /> : <></> }
             {actions ?  <Movies movies={actions} title="Films d'Action"  /> : <></> }
             {comedy ?  <Movies movies={comedy} title="Films d'Action"  /> : <></> }
             {fantasy ?  <Movies movies={fantasy} title="Films d'Action"  /> : <></> }
             {adventure ?  <Movies movies={adventure} title="Films d'Action"  /> : <></> }
+            {upcoming ?  <Movies movies={upcoming} title="Nouveautés"  /> : <></> }
 
 
             

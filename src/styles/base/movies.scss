@@ -54,8 +54,13 @@
             align-items: center;
             display: inline-flex;
             height: 65px;
+            box-shadow: inset 0px 0px 5px #c1c1c1;
             
             
+            &:hover{
+                box-shadow: 0px 15px 20px rgba(255, 255, 255, 0.4);
+                
+            }
 
 
             ion-icon{
@@ -130,10 +135,38 @@
         transition: 1s;
 
         img{
+            position: relative;//absolute
             width: 100%;
             height: 100%;
-            object-fit: cover;   
+            object-fit: cover; 
+            z-index: 1;
         }
+
+        iframe{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            z-index: 2;
+        }
+
+
+        // .videoImg{
+        //     width: 100%;
+        //     height: 100%;
+        //     object-fit: cover;
+        //      z-index: 99999999999999999999999999;
+            
+        // }
+
+        // iframe{
+        //     position: absolute;
+        //     margin-top: -100px;
+        //     width: 100%;
+        //     height: 100%;
+        //     z-index: 0;
+        //     object-fit: cover; 
+        // }
 
         video{
             width: 100%;
@@ -221,7 +254,7 @@
         transition: all ease 0.5s;
         object-fit: cover;
          
-
+        
        
         
     }
@@ -316,5 +349,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+    }
+
+    .mylist{
+        position: absolute;
+        top: 10%;
+        margin-left: 40px;
+
+        h1{
+            color: white;
         }
     }

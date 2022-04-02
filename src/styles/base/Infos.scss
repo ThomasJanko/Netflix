@@ -1,5 +1,10 @@
 
 .infos_card{
+    position: absolute;
     width: 600px;
     height: 1200px;
+    background-color: red;
+    transform: translate(-50%, -50%);
+    top: 0%;
+    left: 50%;
 }

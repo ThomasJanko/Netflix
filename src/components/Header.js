@@ -71,7 +71,9 @@ const Header = () => {
           </li>
           <li className="nav__item">
             <Link href="/login">
-              <a className="nav__link nav__icon"><ion-icon name="person-outline"></ion-icon></a>
+              <a className="nav__link nav__icon">
+                <img width="30px" src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" alt=""/>
+              </a>
             </Link>
           </li>
         
