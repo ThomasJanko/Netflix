@@ -13,13 +13,19 @@ const Index = () => {
     }, []);
 
 
+    //Supprimer un film de Mylist
     const RemovetoMyList = (element) =>{
         let items = movies
         console.log(element)
         let index = items.findIndex(el => el.id === element.id )
-        items = items.splice(index, 1)
+        // items = items.splice(index, 1)
 
-        // localStorage.setItem('Mylist', JSON.stringify(items))
+        if (index > -1) {
+            items.splice(index, 1);
+        }
+
+        console.log(items)
+        localStorage.setItem('Mylist', JSON.stringify(items))
         // setMovies(localStorage.getItem('Mylist'))
         
 
