@@ -4,6 +4,16 @@ import React, { useState } from 'react';
 const Headerfilms = () => {
 
     const [isScrolled, setIsScrolled] = useState(false);
+    const [inputText, setInputText] = useState("");
+
+
+    let inputHandler = (e) => {
+      //convert input text to lower case
+      var lowerCase = e.target.value.toLowerCase();
+      setInputText(lowerCase);
+      console.log(inputText)
+    };
+
 
   if (typeof window !== "undefined") {
    window.onscroll = () => {
@@ -25,7 +35,7 @@ const Headerfilms = () => {
             
           </li>
           <li className="nav__item">
-            <input className='header_films__genres'  placeholder='Genres'/>
+            <input className='header_films__genres'  placeholder='Genres'  onChange={inputHandler}/>
             {/* type="" name="" value="" */}
           </li>
          

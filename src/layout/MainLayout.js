@@ -8,15 +8,18 @@ const MainLayout = ({children}) => {
     const [log, setLog] = useState({})
 
     useEffect(() => {
-       localStorage.setItem('Auth', JSON.stringify({log: false}))
+    //    localStorage.setItem('Login', JSON.stringify({auth: false}))
       
-       setLog((localStorage.getItem('Auth')))
+       setLog(JSON.parse(localStorage.getItem('Login')))
        console.log(log)
+    
     }, []);
    
+    
     return (
         <>
-        {log.log!=false?
+        {/* Si utilisateur pas connecté -> Redirection vers LoginPage */}
+        {log.auth===true?
         <>
             <Header/>
             <main className="app">

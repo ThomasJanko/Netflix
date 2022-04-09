@@ -67,6 +67,22 @@
             font-weight: bold;       
 }
 
+.logout__btn{
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    width: 60%;
+    height: 60px;
+    border-radius: 5px;
+    border: none;
+   
+    font-size: large;
+    color: white;  
+    font-weight: bold;   
+}
+
 .login_signup{
     position: relative;
     margin-left: 60px;

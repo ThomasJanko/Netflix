@@ -6,12 +6,14 @@ import Infoscard from './infosCard';
 import HoverVideoPlayer from 'react-hover-video-player';
 import ImgOverlay from './ImgOverlay';
 import LoadingOverlay from './LoadingOverlay';
+import Modal from './Modal';
 
 const Movies = (props) => {
 
     const [scrollX, setScrollX] = useState(0);
     const [isHovered, setisHovered] = useState(false);
-    const [infos, setInfos] = useState(false)
+    const [infos, setInfos] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     
     const trailer = "https://www.youtube.com/watch?v=uDEy060DZXg"
 
@@ -72,6 +74,7 @@ const Movies = (props) => {
            localStorage.setItem('Mylist', JSON.stringify(list))
         }
         
+        
     }
 
     
@@ -80,6 +83,12 @@ const Movies = (props) => {
 
     return (
         <>
+
+        {showModal && (
+            <Modal title="Erreur" isActive={showModal} closeFunction={()=>setShowModal(!showModal)} type="information">
+            <p>Contenue ajouté à votre Liste de Films</p>
+          </Modal>
+        )}
 
             
             {props.movies && (

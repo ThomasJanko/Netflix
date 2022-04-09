@@ -1,14 +1,26 @@
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import userService from '../service/user.service';
+
 
 const Login = () => {
 
     const [identifier, setIdentifier] = useState();
     const [password, setPassword] = useState();
+    const [log, setLog] = useState({})
 
+  
+
+    useEffect(() => {
+
+           setLog(JSON.parse(localStorage.getItem('Login')))
+           console.log(log)
+        }, []);
 
     const Login = () => {
+        
+     
+
         const obj ={
             identifier : identifier,
             password: password
@@ -21,6 +33,9 @@ const Login = () => {
         if(log.auth === true){
             console.log('success')
             localStorage.setItem('Auth', JSON.stringify(obj))
+            
+            window.location.href = '/';
+
         }
         else{
             // popuperror = true
@@ -34,7 +49,16 @@ const Login = () => {
         console.log(password)
     }
 
+    const Logout = () => {
+        localStorage.setItem('Login', JSON.stringify({auth: false}))
+        localStorage.setItem('Auth', JSON.stringify({}))
+        setLog(JSON.parse(localStorage.getItem('Login')))
+        window.location.href = '/';
+    }
+
     return (
+        <div className='bg_img_login'>
+             {log.auth===false?
         <div className='card__login'>
             <h1 className='card__title'>Sign In</h1>
 
@@ -56,10 +80,14 @@ const Login = () => {
                  <strong>Sign up now</strong>
                  </Link>
                  </span>
-
-
-           
-            
+                 </div>
+                 : 
+                 
+                    <button className='logout__btn' onClick={() => Logout()}>
+                        Se Déconnecter
+                    </button>
+                 
+                 }
         </div>
     );
 }
