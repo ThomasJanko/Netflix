@@ -24,6 +24,17 @@ const Home = () => {
     useEffect( () => {
     
           getMovies();
+          (async () => {
+            setMount(false);
+            let res = await getMovies()
+
+            if (res.success) {
+              setHomemovie(res.data.results[0])
+              setMount(true);
+              
+            }
+          })();
+        
 
         
         //get Popular movies
@@ -53,39 +64,47 @@ const Home = () => {
         movieService.getByGenre(14)
         .then(res=> setFantasy(res.data.results))
 
-
-       
-    
-
- 
     }, []);
 
     const getMovies = async () => {
         //getAll movies (discover)
-        await movieService.getMovies()
-    .then(res => {
-        setMovies(res.data.results)
-        setHomemovie(res.data.results[0])
+        try{
+            let response = await movieService.getMovies()
+            
+            let data = response.data
+            setMovies(data.results)
+
+            return {success: true, data:data}
+        }
+        catch(error){
+            console.log(error)
+            return {success: false}
+        }
         
-        // getMovie()
         
         
-        })
+    
+       
+        
+        
+        
+        
+        
     }
 
-    // const getMovie = async () => {
-    //      //get du premier film de la liste pour avoir la vidéo
-    //      if(homemovie.id){
-    //         await movieService.getMovie(homemovie.id)
-    //         .then((res) => {
-    //             setHomeVideo(res.data.results[1])
-    //             console.log(homemovie.id)
+    const getMovie = async () => {
+         //get du premier film de la liste pour avoir la vidéo
+         if(homemovie.id){
+            await movieService.getMovie(homemovie.id)
+            .then((res) => {
+                setHomeVideo(res.data.results[1])
+                console.log(homemovie.id)
                 
-    //             // console.log(res.data.results[5])
-    //         })
-    //      }
+                // console.log(res.data.results[5])
+            })
+         }
        
-    // }
+    }
     return (
         <div>
 

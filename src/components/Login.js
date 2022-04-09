@@ -1,16 +1,33 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
+import userService from '../service/user.service';
 
 const Login = () => {
 
     const [identifier, setIdentifier] = useState();
     const [password, setPassword] = useState();
 
+
     const Login = () => {
         const obj ={
             identifier : identifier,
             password: password
         }
+
+        userService.login(obj)
+
+        let log =JSON.parse(localStorage.getItem('Login'))
+        
+        if(log.auth === true){
+            console.log('success')
+            localStorage.setItem('Auth', JSON.stringify(obj))
+        }
+        else{
+            // popuperror = true
+            console.log('failed')
+        }
+       
+        
 
 
         console.log(identifier)
