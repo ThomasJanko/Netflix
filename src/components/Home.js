@@ -26,7 +26,7 @@ const Home = () => {
           getMovies();
           (async () => {
             setMount(false);
-            let res = await getMovies()
+            let res = await getMovie()
 
             if (res.success) {
               setHomemovie(res.data.results[0])
@@ -94,15 +94,18 @@ const Home = () => {
 
     const getMovie = async () => {
          //get du premier film de la liste pour avoir la vidéo
-         if(homemovie.id){
-            await movieService.getMovie(homemovie.id)
-            .then((res) => {
-                setHomeVideo(res.data.results[1])
-                console.log(homemovie.id)
-                
-                // console.log(res.data.results[5])
-            })
-         }
+         try{
+            let response = await movieService.getMovies()
+            
+            let data = response.data
+            setMovies(data.results)
+
+            return {success: true, data:data}
+        }
+        catch(error){
+            console.log(error)
+            return {success: false}
+        }
        
     }
     return (
