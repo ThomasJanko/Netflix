@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { uid, suid } from 'rand-token';
+import { uid } from 'rand-token';
 
 const token = uid(30);
 
@@ -13,14 +13,14 @@ export default{
     },
 
     login(form){
-        let test;
+        let log;
        if((form.identifier == "user@netflix.com") && (form.password=="netflix")){
-          test = {auth: true, token: token}
+          log = {auth: true, token: token}
     
        }
        else {
-           test= {auth: false, token:""}
+           log= {auth: false, token:""}
        }
-       return localStorage.setItem('Login',JSON.stringify(test))
+       return localStorage.setItem('Login',JSON.stringify(log))
     }
 }
