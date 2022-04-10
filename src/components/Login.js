@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import userService from '../service/user.service';
+import Modal from './Modal';
 
 
 const Login = () => {
@@ -8,6 +9,7 @@ const Login = () => {
     const [identifier, setIdentifier] = useState();
     const [password, setPassword] = useState();
     const [log, setLog] = useState({})
+    const [showModal, setShowModal] = useState(false);
 
   
 
@@ -19,8 +21,6 @@ const Login = () => {
 
     const Login = () => {
         
-     
-
         const obj ={
             identifier : identifier,
             password: password
@@ -40,10 +40,8 @@ const Login = () => {
         else{
             // popuperror = true
             console.log('failed')
+            setShowModal(true)
         }
-       
-        
-
 
         console.log(identifier)
         console.log(password)
@@ -58,6 +56,9 @@ const Login = () => {
 
     return (
         <div className='bg_img_login'>
+             <Modal title="Erreur" isActive={showModal} closeFunction={()=>setShowModal(!showModal)} type="information">
+                <p>Une erreur est survenue, Identifiant ou mot de passe Incorrect.</p>
+             </Modal>
              {log.auth===false?
         <div className='card__login'>
             <h1 className='card__title'>Sign In</h1>
