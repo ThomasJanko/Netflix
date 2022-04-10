@@ -23,6 +23,7 @@ const Home = () => {
 
     useEffect( () => {
     
+        //attendre d'avoir récupérer tous les films avant de récupérer la vidéo du premier film
           getMovies();
           (async () => {
             setMount(false);
@@ -66,6 +67,7 @@ const Home = () => {
 
     }, []);
 
+    //Récupérer tous les films
     const getMovies = async () => {
         //getAll movies (discover)
         try{
@@ -92,6 +94,7 @@ const Home = () => {
         
     }
 
+    //Récupérer vidéo du premier film
     const getMovie = async () => {
          //get du premier film de la liste pour avoir la vidéo
          try{

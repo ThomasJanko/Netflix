@@ -15,6 +15,7 @@ const Login = () => {
 
     useEffect(() => {
 
+            //Récupération du localstorage Login
            setLog(JSON.parse(localStorage.getItem('Login')))
            console.log(log)
         }, []);
@@ -26,39 +27,45 @@ const Login = () => {
             password: password
         }
 
+        //Appel du service login
         userService.login(obj)
 
         let log =JSON.parse(localStorage.getItem('Login'))
         
+        //si authentification == success
         if(log.auth === true){
             console.log('success')
             localStorage.setItem('Auth', JSON.stringify(obj))
             
+            //redirection vers homePage
             window.location.href = '/';
 
         }
         else{
-            // popuperror = true
-            console.log('failed')
+            
+            //si Authentification == failed
+            //Message d'erreur
             setShowModal(true)
         }
 
-        console.log(identifier)
-        console.log(password)
     }
 
     const Logout = () => {
+        //vider le localstorage pour déconnecter l'utilisateur
         localStorage.setItem('Login', JSON.stringify({auth: false}))
         localStorage.setItem('Auth', JSON.stringify({}))
         setLog(JSON.parse(localStorage.getItem('Login')))
+
+        //Redirection vers homePage
         window.location.href = '/';
     }
 
     return (
         <div className='bg_img_login'>
              <Modal title="Erreur" isActive={showModal} closeFunction={()=>setShowModal(!showModal)} type="information">
-                <p>Une erreur est survenue, Identifiant ou mot de passe Incorrect.</p>
+                <p>Contenue ajouté à votre liste de Films</p>
              </Modal>
+             
              {log.auth===false?
         <div className='card__login'>
             <h1 className='card__title'>Sign In</h1>

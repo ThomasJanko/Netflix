@@ -6,6 +6,7 @@ const Header = () => {
 
   const [isScrolled, setIsScrolled] = useState(false);
 
+  //check si l'utilisateur scroll --> header devient noir
   if (typeof window !== "undefined") {
    window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0? false : true);

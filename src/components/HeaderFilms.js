@@ -6,7 +6,7 @@ const Headerfilms = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [inputText, setInputText] = useState("");
 
-
+    //Rechercher par genre 
     let inputHandler = (e) => {
       //convert input text to lower case
       var lowerCase = e.target.value.toLowerCase();
@@ -15,6 +15,7 @@ const Headerfilms = () => {
     };
 
 
+    //check si l'utilisateur scroll --> header devient noir
   if (typeof window !== "undefined") {
    window.onscroll = () => {
     setIsScrolled(window.pageYOffset === 0? false : true);

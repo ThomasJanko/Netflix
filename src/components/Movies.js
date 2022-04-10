@@ -3,9 +3,6 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import Infoscard from './infosCard';
-import HoverVideoPlayer from 'react-hover-video-player';
-import ImgOverlay from './ImgOverlay';
-import LoadingOverlay from './LoadingOverlay';
 import Modal from './Modal';
 
 const Movies = (props) => {
@@ -15,8 +12,6 @@ const Movies = (props) => {
     const [infos, setInfos] = useState(false);
     const [showModal, setShowModal] = useState(false);
     
-    const trailer = "https://www.youtube.com/watch?v=uDEy060DZXg"
-
 
     const handleLeftArrow = () => {
         let x = scrollX + Math.round(window.innerWidth / 2);
@@ -50,6 +45,7 @@ const Movies = (props) => {
         if (localStorage.getItem('Mylist') == null){
             list.push(movietoAdd)
             localStorage.setItem('Mylist', JSON.stringify(list))
+            
         }
 
         else{ 
@@ -61,10 +57,13 @@ const Movies = (props) => {
                 list.push(a)
             });
             if(check !== -1){
+                
                 return "Film déjà présent"
+                
             }
             else{
                 list.push(movietoAdd)
+                setShowModal(true)
             }
             console.log(memory)
             
@@ -83,12 +82,12 @@ const Movies = (props) => {
 
     return (
         <>
-
-        {showModal && (
-            <Modal title="Erreur" isActive={showModal} closeFunction={()=>setShowModal(!showModal)} type="information">
-            <p>Contenue ajouté à votre Liste de Films</p>
-          </Modal>
-        )}
+            
+            <Modal title="Ajout à la liste" isActive={showModal} closeFunction={()=>setShowModal(!showModal)} type="information">
+                <p>Contenu ajouté à votre liste de films</p>
+             </Modal>
+            
+            
 
             
             {props.movies && (
@@ -110,33 +109,13 @@ const Movies = (props) => {
                       {props.movies && props.movies.map((movie) => (
                        <div className="movieRow--item" key={movie.id} 
                        onMouseEnter ={()=> setisHovered(true)} onMouseLeave={()=>setisHovered(false)}
-                    //    style={{left: isHovered && props.index * 225 -50}}
+                   
                        >
 
-                           
-                           
-                        {/* {isHovered && (
-                            <>
-                                <iframe src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"></iframe>
-                            </>
-                        )}   */}
                         <Link href={`/films/${movie.id}`}>
-                        <img src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`} alt={movie.original_title} width="100%" height="100%" />
+                            <img src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`} alt={movie.original_title} width="100%" height="100%" />
                         </Link>
-                         
-                        
-                       
-                        
-                           
-                           {/* <div className='videoImg'>
-                               
-                           
-                           <HoverVideoPlayer
-                            videoSrc="https://www.youtube.com/watch?v=dxquAfnHhqg"
-                            pausedOverlay={<ImgOverlay/>}
-                            loadingOverlay={<LoadingOverlay />}
-                            />
-                        </div> */}
+               
                            
                            {isHovered && (
                                <>
