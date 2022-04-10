@@ -142,6 +142,7 @@ const Movies = (props) => {
                                <>
                                
                                <div className='itemInfo'>
+                                  
                                     <div className='icons'>
                                         <Link href={`/films/${movie.id}`}>
                                             <ion-icon name="play-circle-outline"></ion-icon>
@@ -152,10 +153,11 @@ const Movies = (props) => {
                                        <div className="ion_infos">
                                            <ion-icon  name="chevron-down-circle-outline" onClick={()=> setInfos(true)}></ion-icon>
                                        </div> 
-
-
-           
+                                   
                                     </div>
+                                    <div className='infos__title'>
+                                    {movie.title}
+                                   </div>
                                     <div className='itemInfoTop'>
                                         <span>1 hours 37min</span>
                                         <span className='limit'>+16</span>

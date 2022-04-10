@@ -201,6 +201,7 @@
                     // left: 0;
                     // right: 0;
                     // width: 100%;
+                    
                 
                     transform: translate3d(0px, -34px, 0);
                     padding-top: 30px;
@@ -272,6 +273,8 @@
         font-size: 18px;
         font-weight: 600;
         color: gray;
+
+       
         
 
         .limit{
@@ -281,6 +284,11 @@
             
         }
 
+        
+    }
+
+    .infos__title{
+        padding-left: 10px;
         
     }
 
